@@ -17,6 +17,7 @@
 #include <QtWidgets/QMainWindow>
 #include <QtWidgets/QMenu>
 #include <QtWidgets/QMenuBar>
+#include <QtWidgets/QPushButton>
 #include <QtWidgets/QTableView>
 #include <QtWidgets/QWidget>
 
@@ -30,6 +31,7 @@ public:
     QWidget *centralwidget;
     QTableView *tableView;
     QLabel *label;
+    QPushButton *pushButton;
     QMenuBar *menubar;
     QMenu *menuTools;
 
@@ -59,6 +61,9 @@ public:
         label = new QLabel(centralwidget);
         label->setObjectName(QString::fromUtf8("label"));
         label->setGeometry(QRect(20, 25, 371, 61));
+        pushButton = new QPushButton(centralwidget);
+        pushButton->setObjectName(QString::fromUtf8("pushButton"));
+        pushButton->setGeometry(QRect(70, 120, 91, 31));
         Dialerui->setCentralWidget(centralwidget);
         menubar = new QMenuBar(Dialerui);
         menubar->setObjectName(QString::fromUtf8("menubar"));
@@ -83,6 +88,7 @@ public:
         actionOpen_an_Address_Book->setText(QApplication::translate("Dialerui", "Open an Address Book...", nullptr));
         actionExit->setText(QApplication::translate("Dialerui", "Exit", nullptr));
         label->setText(QApplication::translate("Dialerui", "TextLabel", nullptr));
+        pushButton->setText(QApplication::translate("Dialerui", "Filter button", nullptr));
         menuTools->setTitle(QApplication::translate("Dialerui", "Tools", nullptr));
     } // retranslateUi
 

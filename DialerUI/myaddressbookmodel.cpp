@@ -11,7 +11,7 @@ MyAddressBookModel::MyAddressBookModel(QObject *parent): QAbstractTableModel(par
 
 int MyAddressBookModel::rowCount(const QModelIndex &parent) const
 {
-    return firstNames.size();
+    return filteredIndex.size();
 }
 
 int MyAddressBookModel::columnCount(const QModelIndex &parent) const
@@ -24,11 +24,11 @@ QVariant MyAddressBookModel::data(const QModelIndex &index, int role) const
     if(role == Qt::DisplayRole){
         switch(index.column()){
         case 0:
-            return firstNames.at(index.row());
+            return firstNames.at(filteredIndex[index.row()]);
         case 1:
-            return lastNames.at(index.row());
+            return lastNames.at(filteredIndex[index.row()]);
         case 2:
-            return phoneNumbers.at(index.row());
+            return phoneNumbers.at(filteredIndex[index.row()]);
         }
 
 //        return QString("Row%1 , Column%2")
@@ -58,12 +58,14 @@ void MyAddressBookModel:: openFile(QString filepath)
             continue;
 
         for(int i = 0; i < fields.length(); i++){
-            std::cout << "{" << i << "i" << fields[i].toStdString();
+            std::cout << "[" << i << "]" << fields[i].toStdString();
         }
         std::cout << std::endl;
         firstNames.push_back(fields[0]);
         lastNames.push_back(fields[1]);
         phoneNumbers.push_back(fields[7]);
+
+        filteredIndex.push_back(j);
     }
     file.close();
 
@@ -73,4 +75,14 @@ void MyAddressBookModel:: openFile(QString filepath)
 QString MyAddressBookModel::getPhoneNumber(int index)
 {
     return phoneNumbers.at(index);
+}
+
+void MyAddressBookModel::setFilterNumber(QString fNum)
+{
+    // Search for phone numbers starting with fNum.
+    for(int i = 0; i < phoneNumbers.size(); i ++){
+        if(phoneNumbers[i].startsWith(fNum)){
+            std::cout << phoneNumbers[i].toStdString() << std::endl;
+        }
+    }
 }

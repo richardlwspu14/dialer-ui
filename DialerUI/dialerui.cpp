@@ -34,3 +34,8 @@ void Dialerui::on_tableView_clicked(const QModelIndex &index)
     std::cout << index.row() << "," << index.column() << std::endl;
     ui->label->setText(myModel->getPhoneNumber(index.row()));
 }
+
+void Dialerui::on_pushButton_clicked()
+{
+    myModel->setFilterNumber("9");
+}

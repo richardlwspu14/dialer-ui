@@ -20,7 +20,7 @@ private slots:
 
     void on_tableView_clicked(const QModelIndex &index);
 
-    void on_Dialerui_iconSizeChanged(const QSize &iconSize);
+    void on_pushButton_clicked();
 
 private:
     Ui::Dialerui *ui;
