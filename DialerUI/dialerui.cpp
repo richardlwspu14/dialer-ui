@@ -13,3 +13,8 @@ Dialerui::~Dialerui()
     delete ui;
 }
 
+
+void Dialerui::on_pushButton_clicked()
+{
+
+}

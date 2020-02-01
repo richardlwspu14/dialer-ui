@@ -15,6 +15,7 @@
 #include <QtWidgets/QMainWindow>
 #include <QtWidgets/QMenu>
 #include <QtWidgets/QMenuBar>
+#include <QtWidgets/QPushButton>
 #include <QtWidgets/QStatusBar>
 #include <QtWidgets/QWidget>
 
@@ -26,6 +27,7 @@ public:
     QAction *actionOpen_an_Address_Book;
     QAction *actionExit;
     QWidget *centralwidget;
+    QPushButton *pushButton;
     QMenuBar *menubar;
     QMenu *menuTools;
     QStatusBar *statusbar;
@@ -41,6 +43,9 @@ public:
         actionExit->setObjectName(QString::fromUtf8("actionExit"));
         centralwidget = new QWidget(Dialerui);
         centralwidget->setObjectName(QString::fromUtf8("centralwidget"));
+        pushButton = new QPushButton(centralwidget);
+        pushButton->setObjectName(QString::fromUtf8("pushButton"));
+        pushButton->setGeometry(QRect(120, 30, 112, 32));
         Dialerui->setCentralWidget(centralwidget);
         menubar = new QMenuBar(Dialerui);
         menubar->setObjectName(QString::fromUtf8("menubar"));
@@ -67,6 +72,7 @@ public:
         Dialerui->setWindowTitle(QApplication::translate("Dialerui", "Dialerui", nullptr));
         actionOpen_an_Address_Book->setText(QApplication::translate("Dialerui", "Open an Address Book...", nullptr));
         actionExit->setText(QApplication::translate("Dialerui", "Exit", nullptr));
+        pushButton->setText(QApplication::translate("Dialerui", "PushButton", nullptr));
         menuTools->setTitle(QApplication::translate("Dialerui", "Tools", nullptr));
     } // retranslateUi
 

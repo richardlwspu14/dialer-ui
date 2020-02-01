@@ -15,6 +15,9 @@ public:
     Dialerui(QWidget *parent = nullptr);
     ~Dialerui();
 
+private slots:
+    void on_pushButton_clicked();
+
 private:
     Ui::Dialerui *ui;
 };
