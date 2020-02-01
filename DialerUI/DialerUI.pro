@@ -17,10 +17,12 @@ DEFINES += QT_DEPRECATED_WARNINGS
 
 SOURCES += \
     main.cpp \
-    dialerui.cpp
+    dialerui.cpp \
+    myaddressbookmodel.cpp
 
 HEADERS += \
-    dialerui.h
+    dialerui.h \
+    myaddressbookmodel.h
 
 FORMS += \
     dialerui.ui
