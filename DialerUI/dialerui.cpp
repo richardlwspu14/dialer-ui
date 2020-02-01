@@ -16,5 +16,5 @@ Dialerui::~Dialerui()
 
 void Dialerui::on_pushButton_clicked()
 {
-
+    ui->pushButton->setStyleSheet("background-color: rgb(255,255,0);");
 }
