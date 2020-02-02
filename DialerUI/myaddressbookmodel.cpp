@@ -76,15 +76,20 @@ void MyAddressBookModel:: openFile(QString filepath)
 
 QString MyAddressBookModel::getPhoneNumber(int index)
 {
-    return phoneNumbers.at(index);
+    return phoneNumbers.at(filteredIndex[index]);
 }
 
 void MyAddressBookModel::setFilterNumber(QString fNum)
 {
+     filteredIndex.clear();
+     int num = 0;
     // Search for phone numbers starting with fNum.
-    for(int i = 0; i < phoneNumbers.size(); i ++){
+    for(int i = 0 ; i < phoneNumbers.size(); i ++){
         if(phoneNumbers[i].startsWith(fNum)){
+            std::cout<< num++ << std::endl;
             std::cout << phoneNumbers[i].toStdString() << std::endl;
+            filteredIndex.push_back(i);
         }
     }
+    emit layoutChanged();
 }

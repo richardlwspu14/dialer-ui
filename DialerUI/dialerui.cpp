@@ -2,6 +2,7 @@
 #include "ui_dialerui.h"
 #include <QFileDialog>
 #include <iostream>
+#include <QSortFilterProxyModel>
 
 Dialerui::Dialerui(QWidget *parent)
     : QMainWindow(parent)
@@ -11,7 +12,6 @@ Dialerui::Dialerui(QWidget *parent)
     ui->setupUi(this);
     ui->tableView->setModel(myModel);
     setFixedSize(840,900);
-
 }
 
 Dialerui::~Dialerui()
@@ -30,7 +30,7 @@ void Dialerui::on_actionOpen_an_Address_Book_triggered()
 }
 
 void Dialerui::on_tableView_clicked(const QModelIndex &index)
-{
+{   ui->tableView->setUpdatesEnabled(true);
     std::cout << index.row() << "," << index.column() << std::endl;
     ui->label->setText(myModel->getPhoneNumber(index.row()));
 }
@@ -38,7 +38,5 @@ void Dialerui::on_tableView_clicked(const QModelIndex &index)
 void Dialerui::on_pushButton_clicked()
 {
 
-    myModel->setFilterNumber("9");
-    ui->tableView->setModel(myModel);
-    ui->tableView->setVisible(myModel);
+    myModel->setFilterNumber("90");
 }
