@@ -60,12 +60,12 @@
      <rect>
       <x>70</x>
       <y>120</y>
-      <width>91</width>
+      <width>31</width>
       <height>31</height>
      </rect>
     </property>
     <property name="text">
-     <string>Filter button</string>
+     <string>9</string>
     </property>
    </widget>
   </widget>

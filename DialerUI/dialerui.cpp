@@ -11,7 +11,7 @@ Dialerui::Dialerui(QWidget *parent)
     ui->setupUi(this);
     ui->tableView->setModel(myModel);
     setFixedSize(840,900);
-    show();
+
 }
 
 Dialerui::~Dialerui()
@@ -37,5 +37,8 @@ void Dialerui::on_tableView_clicked(const QModelIndex &index)
 
 void Dialerui::on_pushButton_clicked()
 {
+
     myModel->setFilterNumber("9");
+    ui->tableView->setModel(myModel);
+    ui->tableView->setVisible(myModel);
 }

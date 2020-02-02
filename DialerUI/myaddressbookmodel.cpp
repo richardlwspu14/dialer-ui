@@ -24,17 +24,19 @@ QVariant MyAddressBookModel::data(const QModelIndex &index, int role) const
     if(role == Qt::DisplayRole){
         switch(index.column()){
         case 0:
-            return firstNames.at(filteredIndex[index.row()]);
+            return firstNames.at(filteredIndex[index.row()]-1);
+
         case 1:
-            return lastNames.at(filteredIndex[index.row()]);
+            return lastNames.at(filteredIndex[index.row()]-1);
         case 2:
-            return phoneNumbers.at(filteredIndex[index.row()]);
+            return phoneNumbers.at(filteredIndex[index.row()]-1);
         }
 
 //        return QString("Row%1 , Column%2")
 //                .arg(index.row())
 //                .arg(index.column());
     }
+
     return QVariant();
 }
 
