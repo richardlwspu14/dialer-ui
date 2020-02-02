@@ -38,5 +38,12 @@ void Dialerui::on_tableView_clicked(const QModelIndex &index)
 void Dialerui::on_pushButton_clicked()
 {
 
-    myModel->setFilterNumber("90");
+    myModel->setFilterNumber("9");
+}
+
+
+
+void Dialerui::on_lineEdit_textEdited(const QString &arg1)
+{
+    myModel->setFilterNumber(arg1.at(0));
 }
