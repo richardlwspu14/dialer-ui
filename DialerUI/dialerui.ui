@@ -78,7 +78,7 @@
      </rect>
     </property>
     <property name="inputMask">
-     <string>999-999-9999</string>
+     <string/>
     </property>
    </widget>
   </widget>

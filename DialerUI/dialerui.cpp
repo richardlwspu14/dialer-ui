@@ -32,7 +32,7 @@ void Dialerui::on_actionOpen_an_Address_Book_triggered()
 void Dialerui::on_tableView_clicked(const QModelIndex &index)
 {   ui->tableView->setUpdatesEnabled(true);
     std::cout << index.row() << "," << index.column() << std::endl;
-    ui->label->setText(myModel->getPhoneNumber(index.row()));
+    ui->label->setText(myModel->getPhoneNumber(index.row() - 1));
 }
 
 void Dialerui::on_pushButton_clicked()
@@ -45,5 +45,5 @@ void Dialerui::on_pushButton_clicked()
 
 void Dialerui::on_lineEdit_textEdited(const QString &arg1)
 {
-    myModel->setFilterNumber(arg1.at(0));
+    //myModel->setFilterNumber(arg1.at(0));
 }

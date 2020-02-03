@@ -94,7 +94,7 @@ public:
         actionExit->setText(QApplication::translate("Dialerui", "Exit", nullptr));
         label->setText(QApplication::translate("Dialerui", "TextLabel", nullptr));
         pushButton->setText(QApplication::translate("Dialerui", "9", nullptr));
-        lineEdit->setInputMask(QApplication::translate("Dialerui", "999-999-9999", nullptr));
+        lineEdit->setInputMask(QString());
         menuTools->setTitle(QApplication::translate("Dialerui", "Tools", nullptr));
     } // retranslateUi
 
