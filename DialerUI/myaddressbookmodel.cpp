@@ -89,6 +89,7 @@ void MyAddressBookModel::setFilterNumber(QString fNum)
             if (phoneNumbers[i].startsWith(fNum)) {
                 filteredIndex.push_back(i + 1);
                 std::cout << phoneNumbers[i].toStdString() << std::endl;
+                std::cout << std::endl;
             }
         }
 
