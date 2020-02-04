@@ -35,7 +35,55 @@ void Dialerui::on_tableView_clicked(const QModelIndex &index)
     ui->label->setText(myModel->getPhoneNumber(index.row()));
 }
 
-void Dialerui::on_pushButton_clicked()
+void Dialerui::on_One_clicked()
+{
+    myModel->setFilterNumber("1");
+}
+
+void Dialerui::on_Two_clicked()
+{
+    myModel->setFilterNumber("2");
+}
+
+void Dialerui::on_Three_clicked()
+{
+    myModel->setFilterNumber("3");
+}
+
+void Dialerui::on_Four_clicked()
+{
+   myModel->setFilterNumber("4");
+}
+
+void Dialerui::on_Five_clicked()
+{
+    myModel->setFilterNumber("5");
+}
+
+void Dialerui::on_Six_clicked()
+{
+    myModel->setFilterNumber("6");
+}
+
+void Dialerui::on_Seven_clicked()
+{
+     myModel->setFilterNumber("7");
+}
+
+void Dialerui::on_Eight_clicked()
+{
+    myModel->setFilterNumber("8");
+}
+
+void Dialerui::on_Nine_clicked()
 {
     myModel->setFilterNumber("9");
 }
+
+
+
+
+
+
+
+

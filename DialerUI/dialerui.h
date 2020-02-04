@@ -20,7 +20,23 @@ private slots:
 
     void on_tableView_clicked(const QModelIndex &index);
 
-    void on_pushButton_clicked();
+    void on_Nine_clicked();
+
+    void on_Eight_clicked();
+
+    void on_Seven_clicked();
+
+    void on_One_clicked();
+
+    void on_Two_clicked();
+
+    void on_Three_clicked();
+
+    void on_Four_clicked();
+
+    void on_Five_clicked();
+
+    void on_Six_clicked();
 
 private:
     Ui::Dialerui *ui;
