@@ -4,10 +4,10 @@
 #include <iostream>
 #include <QSortFilterProxyModel>
 
-Dialerui::Dialerui(QWidget *parent)
-    : QMainWindow(parent)
-    , ui(new Ui::Dialerui),
-      myModel(new MyAddressBookModel(this))
+Dialerui::Dialerui(QWidget *parent) :
+    QMainWindow(parent),
+    ui(new Ui::Dialerui),
+    myModel(new MyAddressBookModel(this))
 {
     ui->setupUi(this);
     ui->tableView->setModel(myModel);
@@ -32,18 +32,10 @@ void Dialerui::on_actionOpen_an_Address_Book_triggered()
 void Dialerui::on_tableView_clicked(const QModelIndex &index)
 {   ui->tableView->setUpdatesEnabled(true);
     std::cout << index.row() << "," << index.column() << std::endl;
-    ui->label->setText(myModel->getPhoneNumber(index.row() - 1));
+    ui->label->setText(myModel->getPhoneNumber(index.row()));
 }
 
 void Dialerui::on_pushButton_clicked()
 {
-
     myModel->setFilterNumber("9");
-}
-
-
-
-void Dialerui::on_lineEdit_textEdited(const QString &arg1)
-{
-    //myModel->setFilterNumber(arg1.at(0));
 }

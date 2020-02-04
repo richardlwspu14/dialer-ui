@@ -22,8 +22,6 @@ private slots:
 
     void on_pushButton_clicked();
 
-    void on_lineEdit_textEdited(const QString &arg1);
-
 private:
     Ui::Dialerui *ui;
     MyAddressBookModel *myModel;

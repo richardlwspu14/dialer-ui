@@ -14,7 +14,6 @@
 #include <QtWidgets/QApplication>
 #include <QtWidgets/QHeaderView>
 #include <QtWidgets/QLabel>
-#include <QtWidgets/QLineEdit>
 #include <QtWidgets/QMainWindow>
 #include <QtWidgets/QMenu>
 #include <QtWidgets/QMenuBar>
@@ -33,7 +32,6 @@ public:
     QTableView *tableView;
     QLabel *label;
     QPushButton *pushButton;
-    QLineEdit *lineEdit;
     QMenuBar *menubar;
     QMenu *menuTools;
 
@@ -42,7 +40,7 @@ public:
         if (Dialerui->objectName().isEmpty())
             Dialerui->setObjectName(QString::fromUtf8("Dialerui"));
         Dialerui->setEnabled(true);
-        Dialerui->resize(840, 900);
+        Dialerui->resize(840, 686);
         QSizePolicy sizePolicy(QSizePolicy::Preferred, QSizePolicy::Preferred);
         sizePolicy.setHorizontalStretch(0);
         sizePolicy.setVerticalStretch(0);
@@ -57,18 +55,15 @@ public:
         centralwidget->setObjectName(QString::fromUtf8("centralwidget"));
         tableView = new QTableView(centralwidget);
         tableView->setObjectName(QString::fromUtf8("tableView"));
-        tableView->setGeometry(QRect(420, 21, 391, 831));
+        tableView->setGeometry(QRect(350, 20, 451, 301));
         tableView->setVerticalScrollBarPolicy(Qt::ScrollBarAlwaysOn);
         tableView->setHorizontalScrollBarPolicy(Qt::ScrollBarAlwaysOff);
         label = new QLabel(centralwidget);
         label->setObjectName(QString::fromUtf8("label"));
-        label->setGeometry(QRect(20, 25, 371, 61));
+        label->setGeometry(QRect(20, 25, 301, 61));
         pushButton = new QPushButton(centralwidget);
         pushButton->setObjectName(QString::fromUtf8("pushButton"));
         pushButton->setGeometry(QRect(70, 120, 31, 31));
-        lineEdit = new QLineEdit(centralwidget);
-        lineEdit->setObjectName(QString::fromUtf8("lineEdit"));
-        lineEdit->setGeometry(QRect(20, 160, 211, 31));
         Dialerui->setCentralWidget(centralwidget);
         menubar = new QMenuBar(Dialerui);
         menubar->setObjectName(QString::fromUtf8("menubar"));
@@ -94,7 +89,6 @@ public:
         actionExit->setText(QApplication::translate("Dialerui", "Exit", nullptr));
         label->setText(QApplication::translate("Dialerui", "TextLabel", nullptr));
         pushButton->setText(QApplication::translate("Dialerui", "9", nullptr));
-        lineEdit->setInputMask(QString());
         menuTools->setTitle(QApplication::translate("Dialerui", "Tools", nullptr));
     } // retranslateUi
 

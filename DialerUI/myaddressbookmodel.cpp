@@ -25,7 +25,6 @@ QVariant MyAddressBookModel::data(const QModelIndex &index, int role) const
         switch(index.column()){
         case 0:
             return firstNames.at(filteredIndex[index.row()] - 1);
-
         case 1:
             return lastNames.at(filteredIndex[index.row()] - 1);
         case 2:
@@ -52,22 +51,23 @@ void MyAddressBookModel:: openFile(QString filepath)
     lastNames.clear();
     phoneNumbers.clear();
 
-    for(int j = 0; !in.atEnd();j++){
+    for(int i = 0; !in.atEnd(); i++){
         QString line = in.readLine();
         QStringList fields = line.split(",");
 
-        if(j ==0)
+        if(i == 0)
             continue;
 
-        for(int i = 0; i < fields.length(); i++){
-            std::cout << "[" << i << "]" << fields[i].toStdString();
+        for(int j = 0; j < fields.length(); j++){
+            std::cout << "[" << j << "]" << fields[j].toStdString();
         }
         std::cout << std::endl;
+
         firstNames.push_back(fields[0]);
         lastNames.push_back(fields[1]);
         phoneNumbers.push_back(fields[7]);
 
-        filteredIndex.push_back(j);
+        filteredIndex.push_back(i);
     }
     file.close();
 
@@ -76,20 +76,21 @@ void MyAddressBookModel:: openFile(QString filepath)
 
 QString MyAddressBookModel::getPhoneNumber(int index)
 {
-    return phoneNumbers.at(filteredIndex[index]);
+    return phoneNumbers.at(filteredIndex[index] - 1);
 }
 
 void MyAddressBookModel::setFilterNumber(QString fNum)
 {
-     filteredIndex.clear();
-     int num = 0;
-    // Search for phone numbers starting with fNum.
-    for(int i = 0 ; i < phoneNumbers.size(); i ++){
-        if(phoneNumbers[i].startsWith(fNum)){
-            std::cout<< num++ << std::endl;
-            std::cout << phoneNumbers[i].toStdString() << std::endl;
-            filteredIndex.push_back(i);
+    // clear filtered index and then I will rebuild the index.
+        filteredIndex.clear();
+
+        // check if phone numbers are starting with fStr.
+        for (size_t i = 0; i < phoneNumbers.size(); i++) {
+            if (phoneNumbers[i].startsWith(fNum)) {
+                filteredIndex.push_back(i + 1);
+                std::cout << phoneNumbers[i].toStdString() << std::endl;
+            }
         }
-    }
-    emit layoutChanged();
+
+        emit layoutChanged();
 }

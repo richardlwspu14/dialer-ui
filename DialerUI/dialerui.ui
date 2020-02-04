@@ -10,7 +10,7 @@
     <x>0</x>
     <y>0</y>
     <width>840</width>
-    <height>900</height>
+    <height>686</height>
    </rect>
   </property>
   <property name="sizePolicy">
@@ -29,10 +29,10 @@
    <widget class="QTableView" name="tableView">
     <property name="geometry">
      <rect>
-      <x>420</x>
-      <y>21</y>
-      <width>391</width>
-      <height>831</height>
+      <x>350</x>
+      <y>20</y>
+      <width>451</width>
+      <height>301</height>
      </rect>
     </property>
     <property name="verticalScrollBarPolicy">
@@ -47,7 +47,7 @@
      <rect>
       <x>20</x>
       <y>25</y>
-      <width>371</width>
+      <width>301</width>
       <height>61</height>
      </rect>
     </property>
@@ -66,19 +66,6 @@
     </property>
     <property name="text">
      <string>9</string>
-    </property>
-   </widget>
-   <widget class="QLineEdit" name="lineEdit">
-    <property name="geometry">
-     <rect>
-      <x>20</x>
-      <y>160</y>
-      <width>211</width>
-      <height>31</height>
-     </rect>
-    </property>
-    <property name="inputMask">
-     <string/>
     </property>
    </widget>
   </widget>
