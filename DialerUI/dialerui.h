@@ -40,6 +40,7 @@ private slots:
 
     void on_Zero_clicked();
 
+    void appendDash();
 private:
     Ui::Dialerui *ui;
     MyAddressBookModel *myModel;

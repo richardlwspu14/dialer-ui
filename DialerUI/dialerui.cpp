@@ -11,6 +11,7 @@ Dialerui::Dialerui(QWidget *parent) :
 {
     ui->setupUi(this);
     ui->tableView->setModel(myModel);
+
     setFixedSize(840,900);
 }
 
@@ -40,18 +41,22 @@ void Dialerui::on_One_clicked()
 {
     //myModel->setFilterNumber("1");
     ui->dialLabel->setText(ui->dialLabel->text().append("1"));
+    appendDash();
 }
 
 void Dialerui::on_Two_clicked()
 {
     myModel->setFilterNumber("2");
     ui->dialLabel->setText(ui->dialLabel->text().append("2"));
+    appendDash();
+
 }
 
 void Dialerui::on_Three_clicked()
 {
     myModel->setFilterNumber("3");
     ui->dialLabel->setText(ui->dialLabel->text().append("3"));
+    appendDash();
 
 }
 
@@ -59,6 +64,7 @@ void Dialerui::on_Four_clicked()
 {
    myModel->setFilterNumber("4");
    ui->dialLabel->setText(ui->dialLabel->text().append("4"));
+   appendDash();
 
 }
 
@@ -66,6 +72,7 @@ void Dialerui::on_Five_clicked()
 {
     myModel->setFilterNumber("5");
     ui->dialLabel->setText(ui->dialLabel->text().append("5"));
+    appendDash();
 
 }
 
@@ -73,6 +80,7 @@ void Dialerui::on_Six_clicked()
 {
     myModel->setFilterNumber("6");
     ui->dialLabel->setText(ui->dialLabel->text().append("6"));
+    appendDash();
 
 }
 
@@ -80,6 +88,7 @@ void Dialerui::on_Seven_clicked()
 {
      myModel->setFilterNumber("7");
      ui->dialLabel->setText(ui->dialLabel->text().append("7"));
+     appendDash();
 
 }
 
@@ -87,6 +96,7 @@ void Dialerui::on_Eight_clicked()
 {
     myModel->setFilterNumber("8");
     ui->dialLabel->setText(ui->dialLabel->text().append("8"));
+    appendDash();
 
 }
 
@@ -94,6 +104,7 @@ void Dialerui::on_Nine_clicked()
 {
     myModel->setFilterNumber("9");
     ui->dialLabel->setText(ui->dialLabel->text().append("9"));
+    appendDash();
 
 }
 
@@ -101,5 +112,12 @@ void Dialerui::on_Zero_clicked()
 {
     //myModel->setFilterNumber("0");
     ui->dialLabel->setText(ui->dialLabel->text().append("0"));
+    appendDash();
 
+}
+
+void Dialerui::appendDash() {
+    if (ui->dialLabel->text().length() == 3 || ui->dialLabel->text().length() == 7) {
+        ui->dialLabel->setText(ui->dialLabel->text().append("–"));
+    }
 }
