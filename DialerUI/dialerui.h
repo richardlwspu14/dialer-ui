@@ -38,6 +38,8 @@ private slots:
 
     void on_Six_clicked();
 
+    void on_Zero_clicked();
+
 private:
     Ui::Dialerui *ui;
     MyAddressBookModel *myModel;
