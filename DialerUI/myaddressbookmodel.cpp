@@ -87,10 +87,8 @@ void MyAddressBookModel::setFilterNumber(QString fNum)
         // check if phone numbers are starting with fStr.
         for (size_t i = 0; i < phoneNumbers.size(); i++) {
             if (phoneNumbers[i].startsWith(fNum)) {
-                fNum.remove((QRegExp(QString::fromStdString("[-]"))));
                 filteredIndex.push_back(i + 1);
-                std::cout<<num<<std::endl;
-                std::cout << phoneNumbers[i].toStdString()<< std::endl;
+                std::cout << phoneNumbers[i].replace("-"," ").toStdString()<< std::endl;
                 std::cout << std::endl;
             }
         }
