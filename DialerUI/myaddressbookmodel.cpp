@@ -4,7 +4,6 @@
 #include <iostream>
 #include <QMessageBox>
 #include <QTextStream>
-#include <algorithm>
 
 MyAddressBookModel::MyAddressBookModel(QObject *parent): QAbstractTableModel(parent)
 {
@@ -87,10 +86,9 @@ void MyAddressBookModel::setFilterNumber(QString fNum)
         filteredIndex.clear();
         // check if phone numbers are starting with fStr.
         for (size_t i = 0; i < phoneNumbers.size(); i++) {
-//            if(phoneNumbers[i].startsWith(fNum))
                 if (phoneNumbers[i].startsWith(fNum)) {
                     filteredIndex.push_back(i + 1);
-                    std::cout << phoneNumbers[i].replace("-"," ").toStdString()<< std::endl;
+                    std::cout << phoneNumbers[i].toStdString()<< std::endl;
                     std::cout << std::endl;
             }
         }
