@@ -56,7 +56,6 @@ void Dialerui::on_Two_clicked()
     //appendDash();
 //    myModel->setFilterNumber("2");
     filterPhoneNumber();
-
 }
 
 void Dialerui::on_Three_clicked()
@@ -155,3 +154,13 @@ void Dialerui::filterPhoneNumber() {
     appendDash();
     }
 
+
+void Dialerui::on_Delete_clicked()
+{   ui->dialLabel->text().clear();
+    /*if(ui->dialLabel->text().length() != 0){
+    ui->dialLabel->text().chop(1);
+    }
+    if(ui->dialLabel->text().isEmpty()){
+        //do nothing
+    }*/
+}

@@ -45,6 +45,9 @@ private slots:
     QString getPhoneNumber();
 
     void filterPhoneNumber();
+
+    void on_Delete_clicked();
+
 private:
     Ui::Dialerui *ui;
     MyAddressBookModel *myModel;
