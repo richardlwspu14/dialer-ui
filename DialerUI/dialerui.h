@@ -41,6 +41,10 @@ private slots:
     void on_Zero_clicked();
 
     void appendDash();
+
+    QString getPhoneNumber();
+
+    void filterPhoneNumber();
 private:
     Ui::Dialerui *ui;
     MyAddressBookModel *myModel;

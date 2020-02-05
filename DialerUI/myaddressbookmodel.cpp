@@ -1,4 +1,5 @@
 #include "myaddressbookmodel.h"
+#include "dialerui.h"
 #include <QFile>
 #include <iostream>
 #include <QMessageBox>
@@ -86,8 +87,8 @@ void MyAddressBookModel::setFilterNumber(QString fNum)
         filteredIndex.clear();
         // check if phone numbers are starting with fStr.
         for (size_t i = 0; i < phoneNumbers.size(); i++) {
-            //if(phoneNumbers[i].startsWith(fNum))
-                if (std::find(phoneNumbers[i].begin(), phoneNumbers[i].end(), fNum)!= phoneNumbers[i].end()) {
+//            if(phoneNumbers[i].startsWith(fNum))
+                if (phoneNumbers[i].startsWith(fNum)) {
                     filteredIndex.push_back(i + 1);
                     std::cout << phoneNumbers[i].replace("-"," ").toStdString()<< std::endl;
                     std::cout << std::endl;
