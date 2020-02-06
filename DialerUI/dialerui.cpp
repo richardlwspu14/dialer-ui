@@ -162,3 +162,15 @@ void Dialerui::on_Delete_clicked()
 
     ui->dialLabel->setText(dialText.left(dialSize-1));
 }
+
+void Dialerui::on_Call_clicked()
+{
+    QMessageBox callingInfo;
+    callingInfo.setStandardButtons(0);
+    QAbstractButton* ExitButton = callingInfo.addButton(tr("Exit"),QMessageBox::YesRole);
+    callingInfo.setText("Calling "+getPhoneNumber()+" ...");
+    callingInfo.exec();
+    if(callingInfo.clickedButton()== ExitButton){
+        ui->dialLabel->clear();
+    }
+}
