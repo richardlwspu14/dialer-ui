@@ -2,7 +2,7 @@
 #include "ui_dialerui.h"
 #include <QFileDialog>
 #include <iostream>
-#include <QSortFilterProxyModel>
+#include <QMessageBox>
 
 Dialerui::Dialerui(QWidget *parent) :
     QMainWindow(parent),
@@ -156,11 +156,9 @@ void Dialerui::filterPhoneNumber() {
 
 
 void Dialerui::on_Delete_clicked()
-{   ui->dialLabel->text().clear();
-    /*if(ui->dialLabel->text().length() != 0){
-    ui->dialLabel->text().chop(1);
-    }
-    if(ui->dialLabel->text().isEmpty()){
-        //do nothing
-    }*/
+{
+    int dialSize = ui->dialLabel->text().size();
+    QString dialText = ui->dialLabel->text();
+
+    ui->dialLabel->setText(dialText.left(dialSize-1));
 }
