@@ -40,9 +40,11 @@ private slots:
 
     void on_Zero_clicked();
 
-    void appendDash();
+    void appendDash(QString number);
 
     QString getPhoneNumber();
+
+    QString getName();
 
     void filterPhoneNumber();
 

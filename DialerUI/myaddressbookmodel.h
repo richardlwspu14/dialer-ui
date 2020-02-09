@@ -15,7 +15,8 @@ public:
     QVariant data(const QModelIndex &index, int role) const;
     void openFile(QString filepath);
     QString getPhoneNumber(int index);
-    void setFilterNumber(QString fNum);
+    void setFilterNumber(QString fNum, QString num);
+    QString charToNum();
 
 private:
     std::vector<QString> firstNames;
