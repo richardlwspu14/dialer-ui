@@ -121,7 +121,7 @@ QString Dialerui::getName(){
 
 
 void Dialerui::filterPhoneNumber() {
-    myModel->setFilterNumber(getPhoneNumber(),getName());
+    myModel->setFilterNumber(getPhoneNumber());
     }
 
 

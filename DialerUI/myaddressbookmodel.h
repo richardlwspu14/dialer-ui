@@ -15,13 +15,16 @@ public:
     QVariant data(const QModelIndex &index, int role) const;
     void openFile(QString filepath);
     QString getPhoneNumber(int index);
-    void setFilterNumber(QString fNum, QString num);
+    void setFilterNumber(QString fNum);
     QString charToNum();
+    void changeFullNameToNum();
 
 private:
     std::vector<QString> firstNames;
     std::vector<QString> lastNames;
     std::vector<QString> phoneNumbers;
+    std::vector<QString> firstNamesValue;
+    std::vector<QString> lastNamesValue;
     std::vector<int> filteredIndex;
 };
 

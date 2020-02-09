@@ -80,19 +80,39 @@ QString MyAddressBookModel::getPhoneNumber(int index)
     return phoneNumbers.at(filteredIndex[index] - 1);
 }
 
-void MyAddressBookModel::setFilterNumber(QString fNum,QString num)
-{
+void MyAddressBookModel::setFilterNumber(QString fNum){
     // clear filtered index and then I will rebuild the index.
         filteredIndex.clear();
+        changeFullNameToNum();
         // check if phone numbers are starting with fStr.
-        for (size_t i = 0; i < phoneNumbers.size(); i++) {
-            if(phoneNumbers[i].startsWith(num)){
+
+        QString temp = fNum;
+
+        for (int i = 0; i < temp.size(); i++) {
+            if (temp[i] == '-') {
+                temp.remove(i, 1);
+            }
+        }
+
+        for (size_t i = 0; i < firstNames.size(); i++) {
+            if(firstNamesValue[i].startsWith(temp)){
                 filteredIndex.push_back(i+1);
-                std::cout << phoneNumbers[i].toStdString()<< std::endl;
+                std::cout << firstNames[i].toStdString()<< std::endl;
                 std::cout << std::endl;
             }
-            else if (phoneNumbers[i].startsWith(fNum)) {
-                filteredIndex.push_back(i + 1);
+        }
+
+        for (size_t i = 0; i < lastNames.size(); i++) {
+            if(lastNamesValue[i].startsWith(temp)){
+                filteredIndex.push_back(i+1);
+                std::cout << lastNames[i].toStdString()<< std::endl;
+                std::cout << std::endl;
+            }
+        }
+
+        for (size_t i = 0; i < phoneNumbers.size(); i++) {
+            if(phoneNumbers[i].startsWith(fNum)){
+                filteredIndex.push_back(i+1);
                 std::cout << phoneNumbers[i].toStdString()<< std::endl;
                 std::cout << std::endl;
             }
@@ -100,27 +120,82 @@ void MyAddressBookModel::setFilterNumber(QString fNum,QString num)
 
         emit layoutChanged();
 }
-QString MyAddressBookModel::charToNum(){
-    QChar c;
-    if(c == 'A' || c == 'B' || c == 'C')
-        return "2";
-    else if(c == 'D' || c == 'E' || c == 'F')
-        return "3";
-    else if(c == 'G' || c == 'H' || c == 'I')
-        return "4";
-    else if(c == 'J' || c == 'K' || c == 'L')
-        return "5";
-    else if(c == 'M' || c == 'N' || c == 'O')
-        return "6";
-    else if(c == 'P' || c == 'Q' || c == 'R' || c == 'S')
-        return "7";
-    else if(c == 'T' || c == 'U' || c == 'V')
-        return "8";
-    else if(c == 'W' || c == 'X' || c == 'Y' || c == 'Z')
-        return "9";
-    else if(c == '0')
-        return "+";
-    else{
 
+void MyAddressBookModel::changeFullNameToNum(){
+    for (auto& names : firstNames) {
+        firstNamesValue.push_back(names);
     }
+
+    for (auto& word : firstNamesValue) {
+            for (auto& letter : word) {
+                if (letter.toLower() == 'a' || letter.toLower() == 'b' ||
+                    letter.toLower() == 'c') {
+                    letter = '2';
+                } else if (letter.toLower() == 'd' || letter.toLower() == 'e' ||
+                           letter.toLower() == 'f') {
+                    letter = '3';
+                } else if (letter.toLower() == 'g' || letter.toLower() == 'h' ||
+                           letter.toLower() == 'i') {
+                    letter = '4';
+                } else if (letter.toLower() == 'j' || letter.toLower() == 'k' ||
+                           letter.toLower() == 'l') {
+                    letter = '5';
+                } else if (letter.toLower() == 'm' || letter.toLower() == 'n' ||
+                           letter.toLower() == 'o') {
+                    letter = '6';
+                } else if (letter.toLower() == 'p' || letter.toLower() == 'q' ||
+                           letter.toLower() == 'r' || letter.toLower() == 's') {
+                    letter = '7';
+                } else if (letter.toLower() == 't' || letter.toLower() == 'u' ||
+                           letter.toLower() == 'v') {
+                    letter = '8';
+                } else if (letter.toLower() == 'w' || letter.toLower() == 'x' ||
+                           letter.toLower() == 'y' || letter.toLower() == 'z') {
+                    letter = '9';
+                } else if (letter == '+') {
+                    letter = '0';
+                } else {
+
+                }
+            }
+        }
+
+    for (auto& names : lastNames) {
+        lastNamesValue.push_back(names);
+    }
+
+    for (auto& word : lastNamesValue) {
+            for (auto& letter : word) {
+                if (letter.toLower() == 'a' || letter.toLower() == 'b' ||
+                    letter.toLower() == 'c') {
+                    letter = '2';
+                } else if (letter.toLower() == 'd' || letter.toLower() == 'e' ||
+                           letter.toLower() == 'f') {
+                    letter = '3';
+                } else if (letter.toLower() == 'g' || letter.toLower() == 'h' ||
+                           letter.toLower() == 'i') {
+                    letter = '4';
+                } else if (letter.toLower() == 'j' || letter.toLower() == 'k' ||
+                           letter.toLower() == 'l') {
+                    letter = '5';
+                } else if (letter.toLower() == 'm' || letter.toLower() == 'n' ||
+                           letter.toLower() == 'o') {
+                    letter = '6';
+                } else if (letter.toLower() == 'p' || letter.toLower() == 'q' ||
+                           letter.toLower() == 'r' || letter.toLower() == 's') {
+                    letter = '7';
+                } else if (letter.toLower() == 't' || letter.toLower() == 'u' ||
+                           letter.toLower() == 'v') {
+                    letter = '8';
+                } else if (letter.toLower() == 'w' || letter.toLower() == 'x' ||
+                           letter.toLower() == 'y' || letter.toLower() == 'z') {
+                    letter = '9';
+                } else if (letter == '+') {
+                    letter = '0';
+                } else {
+
+                }
+            }
+        }
 }
+
