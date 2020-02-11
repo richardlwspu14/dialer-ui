@@ -1,0 +1,35 @@
+<RCC>
+    <qresource prefix="/">
+        <file>images/0.png</file>
+        <file>images/1.png</file>
+        <file>images/2.png</file>
+        <file>images/3.png</file>
+        <file>images/4.png</file>
+        <file>images/5.png</file>
+        <file>images/6.png</file>
+        <file>images/7.png</file>
+        <file>images/8.png</file>
+        <file>images/9.png</file>
+        <file>images/hash.png</file>
+        <file>images/star.png</file>
+        <file>images/CallerIcon.png</file>
+        <file>images/delete button.png</file>
+        <file>images/down arrow.png</file>
+        <file>images/toolbar.png</file>
+        <file>images/Human.png</file>
+        <file>images/improved blue delete button.png</file>
+        <file>images/Chat (1).png</file>
+        <file>images/1 (2).png</file>
+        <file>images/_ (1).png</file>
+        <file>images/0 (1).png</file>
+        <file>images/2(1).png</file>
+        <file>images/4 (1).png</file>
+        <file>images/5 (1).png</file>
+        <file>images/6 (1).png</file>
+        <file>images/7 (1).png</file>
+        <file>images/8 (1).png</file>
+        <file>images/9 (1).png</file>
+        <file>images/hash(1).png</file>
+        <file>images/3(1).png</file>
+    </qresource>
+</RCC>

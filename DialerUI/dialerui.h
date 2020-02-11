@@ -44,16 +44,35 @@ private slots:
 
     QString getPhoneNumber();
 
-    QString getName();
-
     void filterPhoneNumber();
 
     void on_Delete_clicked();
 
     void on_Call_clicked();
 
+    void on_actionExit_triggered();
+
+    void on_Star_clicked();
+
+    void on_Hash_clicked();
+
 private:
     Ui::Dialerui *ui;
     MyAddressBookModel *myModel;
+    void loadImage();
+    QPixmap iconOne;
+    QPixmap iconTwo;
+    QPixmap iconThree;
+    QPixmap iconFour;
+    QPixmap iconFive;
+    QPixmap iconSix;
+    QPixmap iconSeven;
+    QPixmap iconEight;
+    QPixmap iconNine;
+    QPixmap iconTen;
+    QPixmap iconZero;
+    QPixmap iconStar;
+    QPixmap iconHash;
+    QPixmap iconCall;
 };
 #endif // DIALERUI_H

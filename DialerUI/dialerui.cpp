@@ -11,8 +11,39 @@ Dialerui::Dialerui(QWidget *parent) :
 {
     ui->setupUi(this);
     ui->tableView->setModel(myModel);
+    loadImage();
+}
 
-    setFixedSize(840,900);
+void Dialerui::loadImage(){
+    QString iconOneFileName = ":/images/1.png";
+    QString iconTwoFileName = ":/images/2.png";
+    QString iconThreeFileName = "3.png";
+    QString iconFourFileName = "4.png";
+    QString iconFiveFileName = "5.png";
+    QString iconSixFileName = "6.png";
+    QString iconSevenFileName = "7.png";
+    QString iconEightFileName = "8.png";
+    QString iconNineFileName = "9.png";
+    QString iconTenFileName = "10.png";
+    QString iconZeroFileName = "0.png";
+    QString iconStarFileName = "star.png";
+    QString iconHashFileName = "hash.png";
+    QString iconCallFileName = ":/images/CallerIcon.png";
+
+    if(iconOne.load(iconOneFileName)){
+        std::cout<< "Image loaded successfully"<<std::endl;
+        iconOne = iconOne.scaled(ui->One->size(),Qt::KeepAspectRatioByExpanding);
+    }
+    if(iconTwo.load(iconTwoFileName)){
+        std::cout<< "Image loaded successfully"<<std::endl;
+        iconTwo = iconTwo.scaled(ui->Two->size(),Qt::KeepAspectRatioByExpanding);
+    }
+    if(iconCall.load(iconCallFileName)){
+        std::cout<< "Image loaded successfully"<<std::endl;
+        iconCall = iconCall.scaled(ui->Call->size(),Qt::KeepAspectRatioByExpanding);
+    }
+
+
 }
 
 Dialerui::~Dialerui()
@@ -34,13 +65,15 @@ void Dialerui::on_actionOpen_an_Address_Book_triggered()
 void Dialerui::on_tableView_clicked(const QModelIndex &index)
 {   ui->tableView->setUpdatesEnabled(true);
     std::cout << index.row() << "," << index.column() << std::endl;
-    ui->label->setText(myModel->getPhoneNumber(index.row()));
+    ui->dialLabel->setText(myModel->getPhoneNumber(index.row()));
+
 }
 
 void Dialerui::on_One_clicked()
 {
     appendDash("1");
     filterPhoneNumber();
+
 }
 
 void Dialerui::on_Two_clicked()
@@ -115,13 +148,10 @@ void Dialerui::appendDash(QString number) {
 QString Dialerui::getPhoneNumber() {
         return ui->dialLabel->text();
     }
-QString Dialerui::getName(){
-    return ui->label->text();
-}
-
 
 void Dialerui::filterPhoneNumber() {
     myModel->setFilterNumber(getPhoneNumber());
+    //if(getPhoneNumber()==ui->dialLabel->text())
     }
 
 
@@ -141,11 +171,32 @@ void Dialerui::on_Delete_clicked()
 void Dialerui::on_Call_clicked()
 {
     QMessageBox callingInfo;
+    callingInfo.setStyleSheet("background-color: rgb(255, 255, 255)");
+    callingInfo.setStyleSheet("font:bold italic 12px Arial");
     callingInfo.setStandardButtons(0);
+    callingInfo.setWindowTitle("Caller");
     QAbstractButton* ExitButton = callingInfo.addButton(tr("Exit"),QMessageBox::YesRole);
+    ExitButton->setStyleSheet("background-color: rgb(255, 255, 255)");
+    ExitButton->setStyleSheet("border: none");
+    ExitButton->setStyleSheet("font:12px Arial");
     callingInfo.setText("Calling "+getPhoneNumber()+" ...");
     callingInfo.exec();
     if(callingInfo.clickedButton()== ExitButton){
         ui->dialLabel->clear();
     }
+}
+
+void Dialerui::on_actionExit_triggered()
+{
+    QApplication::quit();
+}
+
+void Dialerui::on_Star_clicked()
+{
+    appendDash("*");
+}
+
+void Dialerui::on_Hash_clicked()
+{
+    appendDash("#");
 }
